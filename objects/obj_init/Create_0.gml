@@ -8,6 +8,11 @@
 // Teta main info
 #macro TETA_VERSION "v1.0.0"
 
+// Translate init
+translate_init();
+
+trace(typeof(function() {}));
+
 // Room goto next
 trace("Initilization done");
 room_goto_next();

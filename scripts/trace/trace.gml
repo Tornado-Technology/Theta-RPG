@@ -10,7 +10,7 @@ function trace(_message) {
 		if (string_pos("%", _message)) {
 			_message = string_replace(_message, "%", _next_message);
 		} else {
-			_message += " " + _next_message;
+			_message += _next_message;
 		}
 	}
 	
