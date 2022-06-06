@@ -11,8 +11,6 @@
 // Translate init
 translate_init();
 
-trace(typeof(function() {}));
-
 // Room goto next
 trace("Initilization done");
 room_goto_next();

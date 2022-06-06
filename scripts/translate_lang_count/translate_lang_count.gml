@@ -3,3 +3,4 @@
 function translate_lang_count() {
 	return array_length(global._translate_langs);
 }
+

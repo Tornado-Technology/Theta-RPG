@@ -4,17 +4,17 @@
 /// @desc Returns the entire contents of the file
 function file_text_read_all_strings(_path, _default = "") {
 	var buffer = buffer_load(_path);
-
-	if (buffer_get_size(buffer) == 0) {
-		trace("Buffer load warning file is empty, path: \"", _path, "\"");
-		buffer_delete(buffer);
-		return "";
-	}
 	
 	if (buffer == -1) {
-		trace("Buffer load failed, path: \"", _path, "\"");
+		trace("Buffer load failed, path: \"%\"", _path);
 		buffer_delete(buffer);
 		return _default;
+	}
+	
+	if (buffer_get_size(buffer) == 0) {
+		trace("Buffer load warning file is empty, path: \"%\"");
+		buffer_delete(buffer);
+		return "";
 	}
 	
 	var result = buffer_read(buffer, buffer_string);

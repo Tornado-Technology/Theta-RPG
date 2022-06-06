@@ -4,3 +4,4 @@
 function is_item(_struct) {
 	return variable_struct_exists(_struct, "__system_type");
 }
+

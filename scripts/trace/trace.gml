@@ -14,6 +14,7 @@ function trace(_message) {
 		}
 	}
 	
-	show_debug_message("[Trace] " + _message);
+	show_debug_message(_message);
 	debug_log(_message, "log.txt");
 }
+

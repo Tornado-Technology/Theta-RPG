@@ -7,6 +7,8 @@ function __ClassInventory (_size) constructor {
 		for (var i = 0; i < array_length(slots); i++) {
 			slots[i] = __Slot();
 		}
+		
+		return self;
 	}
 	
     /// @param {number} slot_index
@@ -14,19 +16,19 @@ function __ClassInventory (_size) constructor {
         return _slot_index >= 0 && _slot_index <= array_length(slots) - 1;
     }
     
-    /// @param {nuber} size
+    /// @param {number} size
     static reduce_size = function(_size, _clear = false) {
 		if (_clear) {
 			
 		}
     }
 
-    /// @param {nuber} index
+    /// @param {number} index
     static try_get_slot = function(_index) {
         return index_valid(_index) ? slots[_index] : undefined;
     }
     
-    /// @param {nuber} index
+    /// @param {number} index
     /// @param {item} item
     static try_set_item = function(_index, _item) {
         var slot = try_get_slot(_index);
@@ -51,7 +53,7 @@ function __ClassInventory (_size) constructor {
         trace("Inventory can't add item %, reason: Inventory full", _item.name);
     }
     
-	/// @param {nuber} index
+	/// @param {number} index
     static try_get_item = function(_index) {
         var slot = try_get_slot(_index);
        
@@ -63,7 +65,7 @@ function __ClassInventory (_size) constructor {
         return slot.get_item();
     }
 	
-	/// @param {nuber} index
+	/// @param {number} index
 	static clear_slot = function(_index) {
 		var slot = try_get_slot(_index);
 		
