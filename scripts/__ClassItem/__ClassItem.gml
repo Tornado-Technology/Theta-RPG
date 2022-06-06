@@ -6,4 +6,10 @@ function __ClassItem(_name, _description) constructor {
 	
 	name = _name;
 	description = _description;
+	
+	type = undefined;
+	
+	static get_type = function() {
+		return type;
+	}
 }

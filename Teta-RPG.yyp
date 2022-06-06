@@ -16,10 +16,11 @@
     {"id":{"name":"trace","path":"scripts/trace/trace.yy",},"order":2,},
     {"id":{"name":"translate_get","path":"scripts/translate_get/translate_get.yy",},"order":0,},
     {"id":{"name":"translate_init","path":"scripts/translate_init/translate_init.yy",},"order":1,},
+    {"id":{"name":"obj_test_inventory","path":"objects/obj_test_inventory/obj_test_inventory.yy",},"order":1,},
     {"id":{"name":"Item","path":"scripts/Item/Item.yy",},"order":0,},
     {"id":{"name":"translate_lang_count","path":"scripts/translate_lang_count/translate_lang_count.yy",},"order":2,},
     {"id":{"name":"translate_lang_exists","path":"scripts/translate_lang_exists/translate_lang_exists.yy",},"order":3,},
-    {"id":{"name":"is_item","path":"scripts/is_item/is_item.yy",},"order":2,},
+    {"id":{"name":"is_item","path":"scripts/is_item/is_item.yy",},"order":0,},
     {"id":{"name":"translate_lang_set","path":"scripts/translate_lang_set/translate_lang_set.yy",},"order":4,},
   ],
   "Options": [

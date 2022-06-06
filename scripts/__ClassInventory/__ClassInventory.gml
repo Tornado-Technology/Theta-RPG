@@ -3,9 +3,15 @@
 function __ClassInventory (_size) constructor {
     slots = array_create(_size, undefined);
     
+	static initilization = function() {
+		for (var i = 0; i < array_length(slots); i++) {
+			slots[i] = __Slot();
+		}
+	}
+	
     /// @param {number} slot_index
     static index_valid = function(_slot_index) {
-        return _slot_index < 0 && _slot_index > array_length(slots) - 1;
+        return _slot_index >= 0 && _slot_index <= array_length(slots) - 1;
     }
     
     /// @param {nuber} size
@@ -37,7 +43,7 @@ function __ClassInventory (_size) constructor {
     static try_add_item = function(_item) {
         for (var i = 0; i < array_length(slots); i++) {
             var slot = try_get_slot(i);
-            if (slot.item == undefined) {
+            if (slot.get_item() == undefined) {
                 return try_set_item(i, _item);
             }
         }
@@ -54,7 +60,7 @@ function __ClassInventory (_size) constructor {
             return;
         }
         
-        return slot.item;
+        return slot.get_item();
     }
 	
 	/// @param {nuber} index
@@ -66,9 +72,9 @@ function __ClassInventory (_size) constructor {
             return;
         }
 		
-		var item = slots[slot].item;
+		var item = slots[slot].get_item();
 		
-		slots[slot].item = undefined;
+		slots[slot].get_item() = undefined;
 		
 		return item;
 	}
