@@ -18,9 +18,21 @@ function __ClassInventory (_size) constructor {
     
     /// @param {number} size
     static reduce_size = function(_size, _clear = false) {
-		if (_clear) {
+		var removed_items = [];
+		var number_cells_to_remove = array_length(slots) - _size;
+		
+		if (_clear) removed_items = clear_all_slots();
+		
+		for (var i = 0; i < number_cells_to_remove; i++) {
+			var item = clear_slot(array_length(slots) - 1);
 			
+			array_delete(slots, array_length(slots) - 1, 1);
+			
+			if (item == undefined) continue;
+			array_push(removed_items, item);
 		}
+		
+		return removed_items;
     }
 
     /// @param {number} index
@@ -74,9 +86,9 @@ function __ClassInventory (_size) constructor {
             return;
         }
 		
-		var item = slots[slot].get_item();
+		var item = slot.get_item();
 		
-		slots[slot].get_item() = undefined;
+		slot.item = undefined;
 		
 		return item;
 	}
