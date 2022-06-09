@@ -1,8 +1,6 @@
 inventory = Inventory(10);
-inventory.try_add_item(Item("Test", "Test"));
-inventory.try_add_item(Item("Test", "Test"));
-inventory.try_add_item(Item("Test", "Test"));
-inventory.try_add_item(Item("Test", "Test"));
+inventory.try_add_item(Item("Octo", "Octo the best my friend", spr_item));
 
-show_debug_message(inventory.reduce_size(1));
-show_debug_message(inventory);
+inventory.set_sprite_all_slots(spr_slot);
+
+inventory.position_set(room_width / 2, room_height / 2, 5, 10, 10, fa_right, fa_bottom);

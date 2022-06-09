@@ -2,7 +2,20 @@
 /// @param {number} size
 function __ClassInventory (_size) constructor {
     slots = array_create(_size, undefined);
+	
+	static mouse_slot = undefined;
     
+	#region Tweaks
+	
+	/// @param {method} method
+	static foreach_slots = function(_method) {
+		for (var i = 0; i < array_length(slots); i++) {
+			_method(slots[i]);
+		}
+	}
+	
+	#endregion
+	
 	static initilization = function() {
 		for (var i = 0; i < array_length(slots); i++) {
 			slots[i] = __Slot();
@@ -16,14 +29,13 @@ function __ClassInventory (_size) constructor {
         return _slot_index >= 0 && _slot_index <= array_length(slots) - 1;
     }
     
-    /// @param {number} size
-    static reduce_size = function(_size, _clear = false) {
+    /// @param {number} number_slots_to_remove
+    static reduce_size = function(_number_slots_to_remove, _clear = false) {
 		var removed_items = [];
-		var number_cells_to_remove = array_length(slots) - _size;
 		
 		if (_clear) removed_items = clear_all_slots();
 		
-		for (var i = 0; i < number_cells_to_remove; i++) {
+		for (var i = 0; i < _number_slots_to_remove; i++) {
 			var item = clear_slot(array_length(slots) - 1);
 			
 			array_delete(slots, array_length(slots) - 1, 1);
@@ -105,6 +117,148 @@ function __ClassInventory (_size) constructor {
 		}
 		
 		return removed_items;
+	}
+	
+	#region Sprite methods
+	
+	/// @param {sprite} sprite
+	static set_sprite_all_slots = function(_sprite) {
+		for (var i = 0; i < array_length(slots); i++) {
+			slots[i].set_sprite(_sprite);
+		}
+	}
+	
+	#endregion
+	
+	#region render
+	
+	static render = function() {
+		render_slots();
+		render_sprite_items();
+	}
+	
+	static render_sprite_items = function() {
+		foreach_slots(function(slot) {
+			if (slot.get_item() == undefined) return;
+			
+			var sprite = slot.get_item().get_sprite();
+			
+			if (sprite == undefined) return;
+			
+			draw_sprite(sprite, 0, slot.position_x, slot.position_y);
+		})
+	}
+	
+	static render_slots = function() {
+		foreach_slots(function(slot) {
+			var sprite = slot.get_sprite();
+			
+			draw_sprite(sprite, 0, slot.position_x, slot.position_y);
+		})
+	}
+	
+	#endregion
+	
+	static position_set = function(_x, _y, _count_slots_in_width, _width_offset, _height_offset, _halign, _valign) {
+		var inventory_width = 0;
+		var inventory_height = 0;
+		var new_position = {
+			x: 0,
+			y: 0,
+		}
+		
+		if (_count_slots_in_width > array_length(slots)) {
+			trace("count_slots_in_width can't be more size inventory");
+			return;
+		}
+		
+		// inventory width
+		for (var i = 0; i < _count_slots_in_width; i++) {
+			var slot = try_get_slot(i);
+			var sprite = slot.get_sprite();
+			
+			if (sprite == undefined) {
+				trace("no sprite was found at the slot under the index %", i);
+				return;
+			}
+			
+			var _sprite_width = sprite_get_width(sprite);
+			
+			inventory_width += _sprite_width + _width_offset;
+		}
+		
+		// inventory height
+		for (var i = 0; i < array_length(slots) / _count_slots_in_width; i++) {
+			if (array_length(slots) / _count_slots_in_width <= 1) break;
+			
+			var slot = try_get_slot(_count_slots_in_width * i);
+			var sprite = slot.get_sprite();
+			
+			if (sprite == undefined) {
+				trace("no sprite was found at the slot under the index %", i);
+				return;
+			}
+			
+			var _sprite_height = sprite_get_height(sprite);
+			
+			inventory_height += _sprite_height + _height_offset;
+		}
+		
+		switch (_halign) {
+			case fa_left:
+				new_position.x = _x;
+			break;
+			
+			case fa_center:
+				new_position.x = _x - inventory_width / 2;
+			break;
+			
+			case fa_right:
+				new_position.x = _x - inventory_width;
+			break;
+		}
+		
+		switch (_valign) {
+			case fa_top:
+				new_position.y = _y;
+			break;
+			
+			case fa_middle:
+				new_position.y = _y - inventory_height / 2;
+			break;
+			
+			case fa_bottom:
+				new_position.y = _y - inventory_height;
+			break;
+		}
+		
+		var primary_position_x = new_position.x;
+		var slot_width_index = 0;
+		
+		for (var i = 0; i < array_length(slots); i++) {
+			var slot = slots[i];
+			var sprite = slot.get_sprite();
+			var _sprite_width = sprite_get_width(sprite);
+			var _sprite_height = sprite_get_height(sprite);
+			
+			
+			slot.set_position(new_position.x, new_position.y);
+			
+			new_position.x += _sprite_width;
+			
+			if (slot_width_index >= _count_slots_in_width - 1) {
+				slot_width_index = 0;
+				new_position.y += _sprite_height + _height_offset;
+				new_position.x = primary_position_x;
+				continue;
+			}
+			
+			slot_width_index++
+			
+			new_position.x += _width_offset;
+		}
+		
+		delete new_position;
 	}
 }
 
