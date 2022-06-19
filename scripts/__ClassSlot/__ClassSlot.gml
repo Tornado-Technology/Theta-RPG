@@ -4,8 +4,31 @@ function __ClassSlot() constructor {
 	sprite = undefined;
 	type = undefined;
 	
+	render = true;
+	drag_and_drop = true;
+	
+	on_collision = Event();
+	on_click = Event();
+	
 	position_x = 0;
 	position_y = 0;
+	
+	static initilization = function() {
+		obj_init_mouse_events.on_move.connect(function() {
+			var mouse_position = {
+					x: device_mouse_x_to_gui(0),
+					y: device_mouse_y_to_gui(0),
+			}
+			
+			if (point_in_rectangle(mouse_position.x, mouse_position.y, position_x, position_y, position_x + sprite_get_width(sprite),  position_y + sprite_get_height(sprite))) {
+				
+			}
+			
+			delete mouse_position;
+		})
+	}
+	
+	#region get/set methods
 
 	static get_item = function() {	
 		return item;
@@ -42,4 +65,22 @@ function __ClassSlot() constructor {
 		position_x = _x;
 		position_y = _y;
 	}
+	static get_render = function() {
+		return render;
+	}
+	
+	/// @param {bool} render
+	static set_render = function(_render) {
+		render = _render;
+	}
+	static get_drag_and_drop = function() {
+		return drag_and_drop;
+	}
+	
+	/// @param {bool} drag_and_drop
+	static set_drag_and_drop = function(_drag_and_drop) {
+		drag_and_drop = _drag_and_drop;
+	}
+	
+	#endregion
 }

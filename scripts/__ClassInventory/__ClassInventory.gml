@@ -4,6 +4,9 @@ function __ClassInventory (_size) constructor {
     slots = array_create(_size, undefined);
 	
 	static mouse_slot = undefined;
+	
+	// initilizations
+	static initializated_drag_and_drop = false;
     
 	#region Tweaks
 	
@@ -17,10 +20,15 @@ function __ClassInventory (_size) constructor {
 	#endregion
 	
 	static initilization = function() {
+		// initilization slots
 		for (var i = 0; i < array_length(slots); i++) {
 			slots[i] = __Slot();
 		}
 		
+		// initilization drag_ang_drop
+		if (!initializated_drag_and_drop) {
+			
+		}
 		return self;
 	}
 	
@@ -151,6 +159,8 @@ function __ClassInventory (_size) constructor {
 	
 	static render_slots = function() {
 		foreach_slots(function(slot) {
+			if (!slot.get_render) return;
+			
 			var sprite = slot.get_sprite();
 			
 			draw_sprite(sprite, 0, slot.position_x, slot.position_y);
@@ -159,6 +169,13 @@ function __ClassInventory (_size) constructor {
 	
 	#endregion
 	
+	/// @param {number} x
+	/// @param {number} y
+	/// @param {number} count_slots_in_width
+	/// @param {number} width_offset
+	/// @param {number} height_offset
+	/// @param {number} halign
+	/// @param {number} valign
 	static position_set = function(_x, _y, _count_slots_in_width, _width_offset, _height_offset, _halign, _valign) {
 		var inventory_width = 0;
 		var inventory_height = 0;
