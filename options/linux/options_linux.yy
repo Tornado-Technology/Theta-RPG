@@ -1,8 +1,8 @@
 {
-  "option_linux_display_name": "Created with Teta",
+  "option_linux_display_name": "Created with Theta",
   "option_linux_version": "1.0.0.0",
   "option_linux_maintainer_email": "",
-  "option_linux_homepage": "https://github.com/Tornado-Technology/Teta-RPG",
+  "option_linux_homepage": "https://github.com/Tornado-Technology/Theta-RPG",
   "option_linux_short_desc": "The framework for GameMaker Studio 2.3+ ",
   "option_linux_long_desc": "The framework for GameMaker Studio 2.3+ allows you to quickly and easily create quests, novels, action and other games. Also a framework for other addons",
   "option_linux_splash_screen": "${base_options_dir}/linux/splash/splash.png",

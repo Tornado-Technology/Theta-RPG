@@ -1,17 +1,17 @@
 /// @func translate_get()
-/// @param {stirng} key
+/// @param {string} key
 /// @param {string} default
 /// @desc Returns translation values from the current language
-function translate_get(_key = undefined, _default = "?????") {
+function translate_get(_key = "", _default = "?????") {
 	var json = global._translate_lang_json;
 	
 	if (json == undefined || json == -4) {
-		trace("Trasnlate language not laoded before reading, key: ", _key);
+		logger.warn("Trasnlate language not laoded before reading, key: {0} ", _key);
 		return _default;
 	}
 	
 	// Return a structure
-	if (_key == undefined) { 
+	if (string_is_empty(_key)) { 
 		// You can use it, but I STRONGLY DON'T RECOMMEND
 		// (Because of this method it is impossible to control the fidelity of the key)
 		return json;

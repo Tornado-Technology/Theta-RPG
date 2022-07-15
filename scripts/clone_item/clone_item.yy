@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "Item",
-    "path": "folders/Scripts/System/Item.yy",
+    "path": "folders/Theta/Item.yy",
   },
   "resourceVersion": "1.0",
   "name": "clone_item",

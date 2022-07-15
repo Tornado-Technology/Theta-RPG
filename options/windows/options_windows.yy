@@ -1,11 +1,11 @@
 {
-  "option_windows_display_name": "Created with Teta",
+  "option_windows_display_name": "Created with Theta",
   "option_windows_executable_name": "${project_name}.exe",
   "option_windows_version": "1.0.0.0",
   "option_windows_company_info": "TornadoTech",
   "option_windows_product_info": "Created with Teta",
   "option_windows_copyright_info": "",
-  "option_windows_description_info": "A Teta Game",
+  "option_windows_description_info": "A Theta Game",
   "option_windows_display_cursor": true,
   "option_windows_icon": "${base_options_dir}/windows/icons/icon.ico",
   "option_windows_save_location": 0,

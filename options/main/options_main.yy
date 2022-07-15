@@ -10,7 +10,6 @@
   "option_author": "TornadoTech",
   "option_collision_compatibility": true,
   "option_copy_on_write_enabled": true,
-  "option_lastchanged": "01 June 2022 14:13:03",
   "option_spine_licence": true,
   "option_template_image": "${base_options_dir}/main/template_image.png",
   "option_template_icon": "${base_options_dir}/main/template_icon.png",

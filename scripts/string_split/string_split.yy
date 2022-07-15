@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "String",
-    "path": "folders/Scripts/System/Extensions/String.yy",
+    "path": "folders/Theta/Utils/String.yy",
   },
   "resourceVersion": "1.0",
   "name": "string_split",

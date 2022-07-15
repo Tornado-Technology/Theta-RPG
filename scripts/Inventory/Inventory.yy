@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "Inventory",
-    "path": "folders/Scripts/System/Inventory.yy",
+    "path": "folders/Theta/Inventory.yy",
   },
   "resourceVersion": "1.0",
   "name": "Inventory",

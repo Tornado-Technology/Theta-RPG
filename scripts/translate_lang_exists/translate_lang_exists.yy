@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "Translate",
-    "path": "folders/Scripts/System/Translate.yy",
+    "path": "folders/Theta/Translate.yy",
   },
   "resourceVersion": "1.0",
   "name": "translate_lang_exists",

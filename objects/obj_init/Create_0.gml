@@ -1,16 +1,13 @@
 /// @desc Main intilization
 
 // Game main info
-#macro GAME_NAME "Teta framework"
+#macro GAME_NAME "Youproject"
 #macro GAME_VERSION "v1.0.0"
-#macro GAME_AUTHOR "TornadoTech"
+#macro GAME_AUTHOR "Yourname"
 
 // Teta main info
-#macro TETA_VERSION "v1.0.0"
-
-// Translate init
-translate_init();
+#macro THETA_VERSION "v1.1.0"
 
 // Room goto next
-trace("Initilization done");
+logger.info("Initilization done");
 room_goto_next();

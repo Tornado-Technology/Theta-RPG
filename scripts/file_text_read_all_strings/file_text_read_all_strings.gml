@@ -6,13 +6,13 @@ function file_text_read_all_strings(_path, _default = "") {
 	var buffer = buffer_load(_path);
 	
 	if (buffer == -1) {
-		trace("Buffer load failed, path: \"%\"", _path);
+		logger.warn("Buffer load failed, path: \"{0}\"", _path);
 		buffer_delete(buffer);
 		return _default;
 	}
 	
 	if (buffer_get_size(buffer) == 0) {
-		trace("Buffer load warning file is empty, path: \"%\"");
+		logger.warn("Buffer load warning file is empty, path: \"{0}\"", _path);
 		buffer_delete(buffer);
 		return "";
 	}

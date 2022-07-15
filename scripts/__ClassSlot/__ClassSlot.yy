@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "Classes",
-    "path": "folders/Scripts/System/Inventory/System/Classes.yy",
+    "path": "folders/Theta/Inventory/System/Classes.yy",
   },
   "resourceVersion": "1.0",
   "name": "__ClassSlot",

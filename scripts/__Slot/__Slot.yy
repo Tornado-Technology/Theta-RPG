@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "System",
-    "path": "folders/Scripts/System/Inventory/System.yy",
+    "path": "folders/Theta/Inventory/System.yy",
   },
   "resourceVersion": "1.0",
   "name": "__Slot",

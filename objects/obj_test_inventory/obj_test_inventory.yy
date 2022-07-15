@@ -25,8 +25,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "Tests",
+    "path": "folders/Objects/Tests.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_test_inventory",
