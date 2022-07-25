@@ -1,12 +1,15 @@
 #macro TRANSLATE_DIRECTORY "translate/"
+#macro TRANSLATE_LANG_SPRITES "sprites/"
+#macro TRANSLATE_LANG_SOUNDS "sounds/"
+#macro TRANSLATE_LANG_FONTS "fonts/"
 #macro TRANSLATE_LANG_LIST "config.json"
-#macro TRANSLATE_LANG_INFO "info.json"
-#macro TRANSLATE_LANG_MAIN "main.json"
+#macro TRANSLATE_LANG_INFO "translate.json"
+#macro TRANSLATE_LANG_MAIN "lang.json"
+
 
 enum lang {
 	en_us,
-	en_gb,
-	ru_ru,
+	ru_ru
 }
 
 // Globals
