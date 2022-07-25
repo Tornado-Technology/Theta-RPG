@@ -1,7 +1,7 @@
 /// @param {real} lang_id
 function translate_lang_set(_lang_id) {
 	if (!translate_lang_exists(_lang_id)) { 
-		logger.error("Translate error, \"lang_id\" not exists, id: {0} ", _lang_id);
+		logger.error("Translate error, \"lang_id\" not exists, id: {0}.", _lang_id);
 		return;
 	}
 	
@@ -14,5 +14,7 @@ function translate_lang_set(_lang_id) {
 	global._translate_lang_json = json;
 	global._translate_lang_info = info;
 	
-	logger.info("Translate set new language: {0}", _lang_id);
+
+	logger.info("Translate set new language: {0}.", _lang_id);
+	on_translate_update.invoke();
 }

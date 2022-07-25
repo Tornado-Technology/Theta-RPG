@@ -1,5 +1,5 @@
 /// @func __ClassSlot()
-function __ClassSlot() constructor {
+function ClassSlot() constructor {
 	item = undefined;
 	sprite = undefined;
 	type = undefined;
@@ -34,7 +34,7 @@ function __ClassSlot() constructor {
 		return item;
 	}
 	
-	/// @param {item} item
+	/// @param {Struct.ClassItem} item
 	static set_item = function(_item) {
 		if (!is_item(_item)) return;
 		
@@ -46,8 +46,8 @@ function __ClassSlot() constructor {
 	static get_type = function() {
 		return type;
 	}
-	
-	/// @param {type} type
+
+	/// @param {Real} type
 	static set_type = function(_type) {
 		type = _type;
 	}
@@ -56,7 +56,7 @@ function __ClassSlot() constructor {
 		return sprite;
 	}
 	
-	/// @param {sprite} sprite
+	/// @param {Asset.GMSprite} sprite
 	static set_sprite = function(_sprite) {
 		sprite = _sprite;
 	}

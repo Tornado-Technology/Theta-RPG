@@ -1,7 +1,7 @@
-/// @param {object} obj
-/// @param {number} x
-/// @param {number} y
-/// @param {number} speed
+/// @param {Id.Instance} obj
+/// @param {Real} x
+/// @param {Real} y
+/// @param {Real} speed
 function cutscene_object_move_to(_obj, _x, _y, _speed) {
 	if (instance_exists(_obj)) {
 		var obj_x = _obj.x;

@@ -20,7 +20,7 @@ function ClassLogger() constructor {
 		for (var i = 0; i < array_length(args); i++) {
 			format = string_replace_all(format, "{" + string(i) + "}", string(args[i]));
 		}
-		format =  (show_time ? "[" + date_datetime_string(date_current_datetime()) + "]"  : "") + prefix + format;
+		format =  (show_time ? "[" + date_datetime_string(date_current_datetime()) + "]"  : "") + prefix + " " + format;
 		show_debug_message(format);
 		__log__(format);
 	}

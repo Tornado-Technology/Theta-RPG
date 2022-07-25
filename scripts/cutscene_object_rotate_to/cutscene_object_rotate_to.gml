@@ -1,10 +1,10 @@
-/// @param {object} obj
-/// @param {number} angle
-/// @param {number} speed
-function cutscene_object_rotate_to(_obj, _angle, _speed) {
-	if (instance_exists(_obj)) {
-		_obj.image_angle = approach(_obj.image_angle, _angle, _speed);
-		return _obj.image_angle == _angle;
+/// @param {Id.Instance} inst
+/// @param {Real} angle
+/// @param {Real} spd
+function cutscene_object_rotate_to(inst, angle, spd) {
+	if (instance_exists(inst)) {
+		inst.image_angle = approach(inst.image_angle, angle, spd);
+		return inst.image_angle == angle;
 	}
 
 	return undefined;

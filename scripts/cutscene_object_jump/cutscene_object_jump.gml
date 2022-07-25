@@ -1,6 +1,6 @@
-/// @param {object} obj
-/// @param {number} height
-/// @param {number} speed
+/// @param {Id.Instance} obj
+/// @param {Real} height
+/// @param {Real} speed
 function cutscene_object_jump(_obj, _height, _speed) {
 	if (!instance_exists(_obj)) return undefined;
 	

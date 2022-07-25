@@ -26,13 +26,13 @@ function ClassInventory (size) constructor {
 		return self;
 	}
 	
-    /// @param {real} slot_index The slot number in the inventory
+    /// @param {Real} slot_index The slot number in the inventory
 	/// @desc Checks if the slot is within the inventory.
     static index_valid = function(index) {
         return index >= 0 && index <= array_length(slots) - 1;
     }
     
-    /// @param {number} number_slots_to_remove
+    /// @param {Real} number_slots_to_remove
     static reduce_size = function(_number_slots_to_remove, _clear = false) {
 		var removed_items = [];
 		
@@ -50,13 +50,13 @@ function ClassInventory (size) constructor {
 		return removed_items;
     }
 
-    /// @param {number} index
+    /// @param {Real} index
     static try_get_slot = function(_index) {
         return index_valid(_index) ? slots[_index] : undefined;
     }
     
-    /// @param {number} index
-    /// @param {item} item
+    /// @param {Real} index
+    /// @param {Struct.ClassItem} item
     static try_set_item = function(_index, _item) {
         var slot = try_get_slot(_index);
        
@@ -68,7 +68,7 @@ function ClassInventory (size) constructor {
         slot.set_item(_item);
     } 
 
-    /// @param {item} item
+    /// @param {Struct.ClassItem} item
     static try_add_item = function(_item) {
         for (var i = 0; i < array_length(slots); i++) {
             var slot = try_get_slot(i);
@@ -80,7 +80,7 @@ function ClassInventory (size) constructor {
         logger.warn("Inventory can't add item \"{0}\", reason: Inventory full", _item.name);
     }
     
-	/// @param {real} index
+	/// @param {Real} index
     static try_get_item = function(_index) {
         var slot = try_get_slot(_index);
        
@@ -92,7 +92,7 @@ function ClassInventory (size) constructor {
         return slot.get_item();
     }
 	
-	/// @param {number} index
+	/// @param {Real} index
 	static clear_slot = function(_index) {
 		var slot = try_get_slot(_index);
 		
@@ -124,7 +124,7 @@ function ClassInventory (size) constructor {
 	
 	#region Sprite methods
 	
-	/// @param {sprite} sprite
+	/// @param {Asset.GMSprite} sprite
 	static set_sprite_all_slots = function(_sprite) {
 		for (var i = 0; i < array_length(slots); i++) {
 			slots[i].set_sprite(_sprite);

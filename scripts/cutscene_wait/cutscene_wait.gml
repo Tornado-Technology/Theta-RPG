@@ -1,4 +1,4 @@
-/// @param {number} time
+/// @param {Real} time
 function cutscene_wait(_time) {
 	time++;
 	
